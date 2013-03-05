@@ -1,0 +1,431 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2013 by Malte Schmitz <malte@schmitz-sh.de>
+% ---------------------------------------------------------------------------
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is Malte Schmitz.
+%
+% This work consists of the files ltl.dtx and ltl.ins
+% and the derived filebase ltl.sty.
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{ltl.dtx}
+%</driver>
+%<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+%<package>\ProvidesPackage{ltl}
+%<*package>
+    [2013/03/05 v0.2 configurable LTL math operators]
+%</package>
+%
+%<*driver>
+\documentclass{ltxdoc}
+\setlength{\parskip}{.5\baselineskip}
+\setlength{\parindent}{0pt}
+\usepackage{fontenc}
+\usepackage{lmodern}
+\usepackage{ltl}
+\usepackage{hyperref}
+\hypersetup{breaklinks=true,
+            pdfborder={0 0 0},
+            pdfhighlight={/N},
+            pdftitle={Configurable LTL math operators with the ltl package},
+            pdfauthor={Malte Schmitz}}
+\usepackage{paralist}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{ltl.dtx}
+  \PrintChanges
+  \PrintIndex
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{0}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+%
+% \changes{v0.1}{2012/10/05}{Initial version}
+% \changes{v0.2}{2013/03/05}{Macro collection transformed into a \LaTeX\
+%     package.}
+%
+% \DoNotIndex{\DeclareMathOperator,\let}
+%
+% \providecommand*{\url}{\texttt}
+% \GetFileInfo{ltl.dtx}
+% \title{Configurable LTL math operators with the \textsf{ltl}
+%   package\thanks{This document
+%   corresponds to \textsf{ltl}~\fileversion, dated~\filedate.}}
+% \author{Malte Schmitz \\ \url{malte@schmitz-sh.de}}
+%
+% \maketitle
+%
+% \begin{abstract}
+%   The \textsf{ltl} package contains a set of macros for typesetting operators
+%   used in formulas of the linear temporal logic (LTL) in the Manna/Pnueli
+%   or modern character based notation. This package provides options to switch
+%   between characters and symbols as operators. As a backend for the symbols
+%   either the \textsf{ltlfonts} by Matteo Slanina or Ti\emph{k}Z drawings
+%   provided in this package can be used.
+% \end{abstract}
+%
+% \section{Introduction}
+%
+% Put text here.
+%
+% \section{Usage}
+%
+% Put text here.
+%
+% \section{Showcase}
+% 
+% \subsection{Direct Symbol Usage}
+% circle: $\LTLcircle x$ \\
+% circle with minus: $\LTLcircleminus x$ \\
+% circle with tilde: $\LTLcircletilde x$ \\
+% diamond: $\LTLdiamond x$ \\
+% diamond with minus: $\LTLdiamondminus x$ \\
+% square: $\LTLsquare x$ \\
+% square with minus: $\LTLsquareminus x$
+
+% \subsection{Semantic Interface Usage}
+% until: $x \LTLuntil x$ \\
+% weak until: $x \LTLweakuntil x$ \\
+% release: $x \LTLrelease x$ \\
+% since: $x \LTLsince x$ \\
+% weak since: $x \LTLweaksince x$ (back: $x \LTLback x$) \\
+% globally: $\LTLglobally x$ \\
+% finally: $\LTLfinally x$ (eventually: $\LTLeventually x$) \\
+% next: $\LTLnext x$ \\
+% weak next: $\LTLweaknext x$ \\
+% previous: $\LTLprevious x$ (prev: $\LTLprev x$) \\
+% weak previous: $\LTLweakprevious x$ (weak prev: $\LTLweakprev x$) \\
+% past globally: $\LTLpastglobally x$ \\
+% past finally: $\LTLpastfinally x$ (once: $\LTLonce x$) \\
+% predict: $\LTLpredict x$ \\
+% record: $\LTLrecord x$ \\
+% stop: $\LTLstop x$ \\
+% implication: $x \LTLimplication x$ (imp: $x \LTLimp x$) \\
+% equal: $x \LTLequivalent x$ (equ: $x \LTLequ x$) \\
+% and: $x \LTLand x$ \\
+% or: $x \LTLor x$ \\
+% false: $\LTLfalse$ \\
+% true: $\LTLtrue$
+%
+% \section{Installing \textsf{ltlfonts}}
+% 
+% \textsf{ltlfonts} is a free font developed by Matteo Slanina
+% containing mathematical symbols for typesetting
+% formulas of linear temporal logic (LTL) in the Manna/Pnueli notation.
+%
+% If \textsf{ltlfonts} is loaded this package will use the symbols of LTLFonts
+% instead of the TikZ drawings provided in this package to define its macros.
+%
+% \textsf{ltlfonts} can be downloaded from
+% \url{http://theory.stanford.edu/~matteo/ltlfonts/}
+%
+% To use it with TeX, LaTeX and dvips you can just copy all the files from
+% the zip file (ignoring all folders) next to your tex file and run
+% \begin{verbatim}
+% latex yourfile.tex
+% dvips -u +ltlfonts.map yourfile.tex</pre>
+% \end{verbatim}
+%
+% To use it with PdfTeX or PdfLaTeX you have to install the font into your LaTeX
+% system first. To do so follow these steps:
+%
+% Find your local TeX tree (texmf-local). In TeX Live and MaxTeX the default
+% is |/usr/local/texlive/texmf-local|. In MicTeX the default is
+% |%APPDATA%\MikTeX\2.9|
+%
+% Copy these files to the given directories:
+% \begin{compactitem}[--]
+%   \item |fonts/afm/matteo/ltlfonts/ltlfonts.afm|
+%   \item |fonts/map/dvips/matteo/ltlfonts.map|
+%   \item |fonts/tfm/matteo/ltlfonts/ltlfonts.tfm|
+%   \item |fonts/type1/matteo/ltlfonts/ltlfonts.pfb|
+%   \item |fonts/type1/matteo/ltlfonts/ltlfonts.pfm|
+%   \item |tex/latex/ltlfonts/ltlfonts.sty|
+%   \item |tex/latex/ltlfonts/Ultlfonts.fd|
+% \end{compactitem}
+% 
+% After getting your new files into their proper location,
+% you must update the so-called ``TeX filename database''.
+% \begin{compactitem}[--]
+%   \item on MikTeX run |initexmf --update-fndb|
+%   \item on MacTeX run |mktexlsr|
+%   \item on TeXLive run |mktexlsr|
+% \end{compactitem}
+% 
+% After recording the new files, the last step is to update so-called ``map''
+% files with the information about the new font.
+%
+% On MikTex run |initexmf --edit-config-file updmap|. A configuration file gets
+% opened in your default editor. Add the line
+% \begin{verbatim}
+% Map ltlfonts.map
+% \end{verbatim}
+% (Don't worry if the file is initially empty.)
+%
+% On TeX Live and MacTeX run
+% \begin{verbatim}
+% updmap-sys --enable Map=ltlfonts.map
+% \end{verbatim}
+%
+% \textsf{ltlfonts} is now installed and can be used. As a test you can compile
+% this LaTeX code:
+%
+% \begin{verbatim}
+% \documentclass{article}
+% \usepackage{ltlfonts}
+% \begin{document}
+% LTLFonts provides some nice boxes and circles. For example:
+% \[ \LTLsquare \LTLdiamond \LTLcircle a, \LTLcircleminus
+% \LTLdiamondminus \LTLsquareminus \LTLcircletilde b, \LTLsquarehat
+% \LTLdiamondminushat c \]
+% \end{document}
+% \end{verbatim}
+%
+% The \textsf{ltlfonts} package provides a set of LTL symbols. It does not
+% provide any semantically named commands and it does not allow switching to
+% characeter based LTL symbols. It just lets you use the LTL symbols of the
+% LTLFonts font in a \LaTeX\ document.
+%
+%
+% \StopEventually{}
+%
+% \section{Implementation}
+%
+% \iffalse
+%<*package>
+% \fi
+%
+% We start loading some required packages. \textsf{xkeyval} is used to handle
+% the options. \textsf{amsmath} provides |\DeclareMathOperator| which handles
+% the spacing around the declared operators automatically, \textsf{amssymb}
+% provides some additional symbols some operator macros are based on and
+% Ti\emph{k}Z is used to draw the LTL symbols.
+%    \begin{macrocode}
+\RequirePackage{xkeyval}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{tikz}
+%    \end{macrocode}
+%
+% \subsection{Ti\emph{k}Z symbols}
+%
+% We now define the symbols using Ti\emph{k}Z. The macros are named after the
+% macros defined by the LTLFonts package. Every macro is only defined unless
+% it is already defined. This way we use the macros of the LTLFonts package
+% if it is loaded. The |\tikz| command with |baseline| option is used to create
+% ``inline'' graphics as this technique called in the manual:
+% \begin{quote}
+%   Normally, the lower end of the picture is put on the baseline of the
+%   surrounding text. Using this option, you can specify that the picture
+%   should be raised or lowered such that the given height is on the baseline.
+% \end{quote}
+% The value defaults to |0pt|.
+%
+% \begin{macro}{LTLcircle}
+% Draws a circle, e.g. for the LTL next operator.
+%    \begin{macrocode}
+\@ifundefined{LTLcircle}{\DeclareMathOperator{\LTLcircle}{%
+  \tikz[baseline]{
+    \draw[line width=.12ex]
+      (0,.6ex) circle (.8ex);
+  }}}{}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{LTLcircleminus}
+% Draws a circle with minus in it, e.g. for LTL previous resp. past next
+% operator.
+%    \begin{macrocode}
+\@ifundefined{LTLcircleminus}{\DeclareMathOperator{\LTLcircleminus}{%
+  \tikz[baseline]{
+    \draw[line width=.12ex]
+      (0,.6ex) circle (.8ex);
+    \draw[line width=.09ex,line cap=round]
+      (-.4ex,.6ex) -- (.4ex,.6ex);
+  }}}{}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{LTLcircletilde}
+% Draw a circle with tilde in it, e.g. for LTL weak previous resp weak past next
+% operator.
+%    \begin{macrocode}
+\@ifundefined{LTLcircletilde}{\DeclareMathOperator{\LTLcircletilde}{%
+  \tikz[baseline]{
+    \draw[line width=.12ex]
+      (0,.6ex) circle (.8ex);
+    \draw[line width=.09ex,line cap=round,rounded corners=0.2ex]
+      (-.4ex,.55ex) -- (-.2ex,.8ex) -- (.2ex,.4ex) -- (.4ex,.65ex);
+  }}}{}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{LTLdiamond}
+%   Draws diamond, e.g. for the LTL finally resp. eventually operator.
+%    \begin{macrocode}
+\@ifundefined{LTLdiamond}{\DeclareMathOperator{\LTLdiamond}{%
+  \tikz[baseline]{
+    \draw[line width=.12ex,line join=round]
+      (0ex,.6ex) -- (.95ex,1.55ex) -- (1.9ex,.6ex) -- (.95ex,-.35ex) -- cycle;
+  }}}{}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{LTLdiamondminus}
+% Draws a diamond with minus in it, e.g. for the LTL past finally resp. past
+% eventually resp. once operator.
+%    \begin{macrocode}
+\@ifundefined{LTLdiamondminus}{\DeclareMathOperator{\LTLdiamondminus}{%
+  \tikz[baseline]{
+    \draw[line width=.12ex,line join=round]
+      (0ex,.6ex) -- (.95ex,1.55ex) -- (1.9ex,.6ex) -- (.95ex,-.35ex) -- cycle;
+    \draw[line width=.09ex,line cap=round]
+      (.5ex,.6ex) -- (1.3ex,.6ex);
+  }}}{}
+%    \end{macrocode}
+% \end{macro}
+% 
+% \begin{macro}{LTLsquare}
+%   Draws a square, e.g. for the LTL globally operator.
+%    \begin{macrocode}
+\@ifundefined{LTLsquare}{\DeclareMathOperator{\LTLsquare}{%
+  \tikz[baseline]{
+    \draw[line width=.12ex,line join=round]
+      (0ex,-.2ex) -- (0ex,1.3ex) -- (1.5ex,1.3ex) -- (1.5ex,.-.2ex) -- cycle;
+  }}}{}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{LTLsquareminus}
+% Draws a square with minus in it, e.g. for the LTL past globally operator.
+%    \begin{macrocode}
+\@ifundefined{LTLsquareminus}{\DeclareMathOperator{\LTLsquareminus}{%
+  \tikz[baseline]{
+    \draw[line width=.12ex,line join=round]
+      (0ex,-.2ex) -- (0ex,1.3ex) -- (1.5ex,1.3ex) -- (1.5ex,.-.2ex) -- cycle;
+    \draw[line width=.09ex,line cap=round]
+      (.35ex,.6ex) -- (1.15ex,.6ex);
+  }}}{}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Option Handling}
+%
+% We now declare the \textsf{xkeyval} boolean keys. The optional parameter
+% |true| is the default value that gets used if you only specify the key with
+% a value.
+%    \begin{macrocode} 
+\define@boolkeys{ltl}{characters,weakindex}[true]
+%    \end{macrocode}
+%
+% This macro processes the keys and values passed by the user to the class
+% or package.
+%    \begin{macrocode}
+\ProcessOptionsX<ltl>
+%    \end{macrocode}
+%
+% \subsection{Semantic Macros for LTL Operators}
+% 
+% alwyas characters operators
+%    \begin{macrocode}
+\DeclareMathOperator{\LTLuntil}{\mathcal{U}}
+\DeclareMathOperator{\LTLrelease}{\mathcal{R}}
+\DeclareMathOperator{\LTLsince}{\mathcal{S}}
+\ifKV@ltl@weakindex
+  \DeclareMathOperator{\LTLweakuntil}{\mathcal{U}_w}
+  \DeclareMathOperator{\LTLweaksince}{\mathcal{S}_w}
+\else
+  \DeclareMathOperator{\LTLweakuntil}{\mathcal{W}}
+  \DeclareMathOperator{\LTLweaksince}{\mathcal{B}}
+\fi
+%    \end{macrocode}
+% sometimes symbol operators
+%    \begin{macrocode}
+\ifKV@ltl@characters
+  \DeclareMathOperator{\LTLglobally}{\mathcal{G}}
+  \DeclareMathOperator{\LTLfinally}{\mathcal{F}}
+  \DeclareMathOperator{\LTLnext}{\mathcal{X}}
+  \DeclareMathOperator{\LTLweaknext}{\mathcal{X}_w}  
+  \DeclareMathOperator{\LTLprevious}{\mathcal{P}}
+  \DeclareMathOperator{\LTLweakprevious}{\mathcal{P}_w}
+  \DeclareMathOperator{\LTLpastglobally}{\mathcal{H}}
+  \DeclareMathOperator{\LTLpastfinally}{\mathcal{O}}
+\else
+  \let\LTLglobally\LTLsquare
+  \let\LTLfinally\LTLdiamond
+  \let\LTLnext\LTLcircle
+  \DeclareMathOperator{\LTLweaknext}{\LTLcircle_w}
+  \let\LTLprevious\LTLcircleminus
+  \let\LTLpastglobally\LTLsquareminus
+  \let\LTLpastfinally\LTLdiamondminus
+  \ifKV@ltl@weakindex
+    \DeclareMathOperator{\LTLweakprevious}{\LTLcircleminus_w}
+  \else
+    \let\LTLweakprevious\LTLcircletilde
+  \fi
+\fi
+
+%    \end{macrocode}
+% auxilaries
+%    \begin{macrocode}
+\DeclareMathOperator{\LTLpredict}{\rhd}
+\DeclareMathOperator{\LTLrecord}{\lhd}
+\DeclareMathOperator{\LTLstop}{stop}
+\DeclareMathOperator{\LTLimplication}{\rightarrow}
+\DeclareMathOperator{\LTLequivalent}{\leftrightarrow}
+\DeclareMathOperator{\LTLand}{\wedge}
+\DeclareMathOperator{\LTLor}{\vee}
+\DeclareMathOperator{\LTLfalse}{\bot}
+\DeclareMathOperator{\LTLtrue}{\top}
+
+%    \end{macrocode}
+% aliases
+%    \begin{macrocode}
+\let\LTLeventually\LTLfinally
+\let\LTLprev\LTLprevious
+\let\LTLweakprev\LTLweakprevious
+\let\LTLonce\LTLpastfinally
+\let\LTLback\LTLweaksince
+\let\LTLimp\LTLimplication
+\let\LTLequ\LTLequivalent
+%    \end{macrocode}
+%
+% \iffalse
+%</package>
+% \fi
+%
+% \Finale
+\endinput
