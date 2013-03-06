@@ -77,9 +77,8 @@
 % \changes{v0.2}{2013/03/05}{Macro collection transformed into a \LaTeX\
 %     package.}
 %
-% \DoNotIndex{\DeclareMathOperator,\let}
+% \DoNotIndex{\providecommand,\operatorname,\let}
 %
-% \providecommand*{\url}{\texttt}
 % \GetFileInfo{ltl.dtx}
 % \title{Configurable LTL math operators with the \textsf{ltl}
 %   package\thanks{This document
@@ -115,8 +114,83 @@
 % diamond with minus: $\LTLdiamondminus x$ \\
 % square: $\LTLsquare x$ \\
 % square with minus: $\LTLsquareminus x$
-
-% \subsection{Semantic Interface Usage}
+%
+% \subsection{Semantic Interface Usage with symbols and without weakindex}
+% until: $x \LTLuntil x$ \\
+% weak until: $x \LTLweakuntil x$ \\
+% release: $x \LTLrelease x$ \\
+% since: $x \LTLsince x$ \\
+% weak since: $x \LTLweaksince x$ (back: $x \LTLback x$) \\
+% globally: $\LTLglobally x$ \\
+% finally: $\LTLfinally x$ (eventually: $\LTLeventually x$) \\
+% next: $\LTLnext x$ \\
+% weak next: $\LTLweaknext x$ \\
+% previous: $\LTLprevious x$ (prev: $\LTLprev x$) \\
+% weak previous: $\LTLweakprevious x$ (weak prev: $\LTLweakprev x$) \\
+% past globally: $\LTLpastglobally x$ \\
+% past finally: $\LTLpastfinally x$ (once: $\LTLonce x$) \\
+% predict: $\LTLpredict x$ \\
+% record: $\LTLrecord x$ \\
+% stop: $\LTLstop x$ \\
+% implication: $x \LTLimplication x$ (imp: $x \LTLimp x$) \\
+% equal: $x \LTLequivalent x$ (equ: $x \LTLequ x$) \\
+% and: $x \LTLand x$ \\
+% or: $x \LTLor x$ \\
+% false: $\LTLfalse$ \\
+% true: $\LTLtrue$
+%
+% \subsection{Semantic Interface Usage with symbols and with weakindex}
+% \ltlsetup{weakindex}
+% until: $x \LTLuntil x$ \\
+% weak until: $x \LTLweakuntil x$ \\
+% release: $x \LTLrelease x$ \\
+% since: $x \LTLsince x$ \\
+% weak since: $x \LTLweaksince x$ (back: $x \LTLback x$) \\
+% globally: $\LTLglobally x$ \\
+% finally: $\LTLfinally x$ (eventually: $\LTLeventually x$) \\
+% next: $\LTLnext x$ \\
+% weak next: $\LTLweaknext x$ \\
+% previous: $\LTLprevious x$ (prev: $\LTLprev x$) \\
+% weak previous: $\LTLweakprevious x$ (weak prev: $\LTLweakprev x$) \\
+% past globally: $\LTLpastglobally x$ \\
+% past finally: $\LTLpastfinally x$ (once: $\LTLonce x$) \\
+% predict: $\LTLpredict x$ \\
+% record: $\LTLrecord x$ \\
+% stop: $\LTLstop x$ \\
+% implication: $x \LTLimplication x$ (imp: $x \LTLimp x$) \\
+% equal: $x \LTLequivalent x$ (equ: $x \LTLequ x$) \\
+% and: $x \LTLand x$ \\
+% or: $x \LTLor x$ \\
+% false: $\LTLfalse$ \\
+% true: $\LTLtrue$
+%
+% \subsection{Semantic Interface Usage with characters and without weakindex}
+% \ltlsetup{characters}
+% until: $x \LTLuntil x$ \\
+% weak until: $x \LTLweakuntil x$ \\
+% release: $x \LTLrelease x$ \\
+% since: $x \LTLsince x$ \\
+% weak since: $x \LTLweaksince x$ (back: $x \LTLback x$) \\
+% globally: $\LTLglobally x$ \\
+% finally: $\LTLfinally x$ (eventually: $\LTLeventually x$) \\
+% next: $\LTLnext x$ \\
+% weak next: $\LTLweaknext x$ \\
+% previous: $\LTLprevious x$ (prev: $\LTLprev x$) \\
+% weak previous: $\LTLweakprevious x$ (weak prev: $\LTLweakprev x$) \\
+% past globally: $\LTLpastglobally x$ \\
+% past finally: $\LTLpastfinally x$ (once: $\LTLonce x$) \\
+% predict: $\LTLpredict x$ \\
+% record: $\LTLrecord x$ \\
+% stop: $\LTLstop x$ \\
+% implication: $x \LTLimplication x$ (imp: $x \LTLimp x$) \\
+% equal: $x \LTLequivalent x$ (equ: $x \LTLequ x$) \\
+% and: $x \LTLand x$ \\
+% or: $x \LTLor x$ \\
+% false: $\LTLfalse$ \\
+% true: $\LTLtrue$
+%
+% \subsection{Semantic Interface Usage with characters and with weakindex}
+% \ltlsetup{characters,weakindex}
 % until: $x \LTLuntil x$ \\
 % weak until: $x \LTLweakuntil x$ \\
 % release: $x \LTLrelease x$ \\
@@ -229,7 +303,7 @@
 % \fi
 %
 % We start loading some required packages. \textsf{xkeyval} is used to handle
-% the options. \textsf{amsmath} provides |\DeclareMathOperator| which handles
+% the options. \textsf{amsmath} provides |\operatorname| which handles
 % the spacing around the declared operators automatically, \textsf{amssymb}
 % provides some additional symbols some operator macros are based on and
 % Ti\emph{k}Z is used to draw the LTL symbols.
@@ -240,7 +314,7 @@
 \RequirePackage{tikz}
 %    \end{macrocode}
 %
-% \subsection{Ti\emph{k}Z symbols}
+% \subsection{Ti\emph{k}Z symbol operators}
 %
 % We now define the symbols using Ti\emph{k}Z. The macros are named after the
 % macros defined by the LTLFonts package. Every macro is only defined unless
@@ -257,7 +331,7 @@
 % \begin{macro}{LTLcircle}
 % Draws a circle, e.g. for the LTL next operator.
 %    \begin{macrocode}
-\@ifundefined{LTLcircle}{\DeclareMathOperator{\LTLcircle}{%
+\providecommand{\LTLcircle}{\operatorname{%
   \tikz[baseline]{
     \draw[line width=.12ex]
       (0,.6ex) circle (.8ex);
@@ -269,7 +343,7 @@
 % Draws a circle with minus in it, e.g. for LTL previous resp. past next
 % operator.
 %    \begin{macrocode}
-\@ifundefined{LTLcircleminus}{\DeclareMathOperator{\LTLcircleminus}{%
+\providecommand{\LTLcircleminus}{\operatorname{%
   \tikz[baseline]{
     \draw[line width=.12ex]
       (0,.6ex) circle (.8ex);
@@ -283,7 +357,7 @@
 % Draw a circle with tilde in it, e.g. for LTL weak previous resp weak past next
 % operator.
 %    \begin{macrocode}
-\@ifundefined{LTLcircletilde}{\DeclareMathOperator{\LTLcircletilde}{%
+\providecommand{\LTLcircletilde}{\operatorname{%
   \tikz[baseline]{
     \draw[line width=.12ex]
       (0,.6ex) circle (.8ex);
@@ -296,7 +370,7 @@
 % \begin{macro}{LTLdiamond}
 %   Draws diamond, e.g. for the LTL finally resp. eventually operator.
 %    \begin{macrocode}
-\@ifundefined{LTLdiamond}{\DeclareMathOperator{\LTLdiamond}{%
+\providecommand{\LTLdiamond}{\operatorname{%
   \tikz[baseline]{
     \draw[line width=.12ex,line join=round]
       (0ex,.6ex) -- (.95ex,1.55ex) -- (1.9ex,.6ex) -- (.95ex,-.35ex) -- cycle;
@@ -308,7 +382,7 @@
 % Draws a diamond with minus in it, e.g. for the LTL past finally resp. past
 % eventually resp. once operator.
 %    \begin{macrocode}
-\@ifundefined{LTLdiamondminus}{\DeclareMathOperator{\LTLdiamondminus}{%
+\providecommand{\LTLdiamondminus}{\operatorname{%
   \tikz[baseline]{
     \draw[line width=.12ex,line join=round]
       (0ex,.6ex) -- (.95ex,1.55ex) -- (1.9ex,.6ex) -- (.95ex,-.35ex) -- cycle;
@@ -321,7 +395,7 @@
 % \begin{macro}{LTLsquare}
 %   Draws a square, e.g. for the LTL globally operator.
 %    \begin{macrocode}
-\@ifundefined{LTLsquare}{\DeclareMathOperator{\LTLsquare}{%
+\providecommand{\LTLsquare}{\operatorname{%
   \tikz[baseline]{
     \draw[line width=.12ex,line join=round]
       (0ex,-.2ex) -- (0ex,1.3ex) -- (1.5ex,1.3ex) -- (1.5ex,.-.2ex) -- cycle;
@@ -332,7 +406,7 @@
 % \begin{macro}{LTLsquareminus}
 % Draws a square with minus in it, e.g. for the LTL past globally operator.
 %    \begin{macrocode}
-\@ifundefined{LTLsquareminus}{\DeclareMathOperator{\LTLsquareminus}{%
+\providecommand{\LTLsquareminus}{\operatorname{%
   \tikz[baseline]{
     \draw[line width=.12ex,line join=round]
       (0ex,-.2ex) -- (0ex,1.3ex) -- (1.5ex,1.3ex) -- (1.5ex,.-.2ex) -- cycle;
@@ -341,6 +415,88 @@
   }}}{}
 %    \end{macrocode}
 % \end{macro}
+%
+%    \begin{macrocode}
+\DeclareMathOperator{\LTLcirclew}{\LTLcircle_w}
+\DeclareMathOperator{\LTLcircleminusw}{\LTLcircleminus_w}
+%    \end{macrocode}
+%
+%
+% \subsection{Character operators}
+%
+%    \begin{macrocode}
+\DeclareMathOperator{\LTLu}{\mathcal{U}}
+\DeclareMathOperator{\LTLuw}{\mathcal{U}_w}
+\DeclareMathOperator{\LTLb}{\mathcal{B}}
+\DeclareMathOperator{\LTLr}{\mathcal{R}}
+\DeclareMathOperator{\LTLs}{\mathcal{S}}
+\DeclareMathOperator{\LTLsw}{\mathcal{S}_w}
+\DeclareMathOperator{\LTLw}{\mathcal{W}}
+\DeclareMathOperator{\LTLf}{\mathcal{F}}
+\DeclareMathOperator{\LTLg}{\mathcal{G}}
+\DeclareMathOperator{\LTLx}{\mathcal{X}}
+\DeclareMathOperator{\LTLxw}{\mathcal{X}_w}  
+\DeclareMathOperator{\LTLp}{\mathcal{P}}
+\DeclareMathOperator{\LTLpw}{\mathcal{P}_w}
+\DeclareMathOperator{\LTLh}{\mathcal{H}}
+\DeclareMathOperator{\LTLo}{\mathcal{O}}
+%    \end{macrocode}
+% \subsection{Semantic Macros for LTL Operators}
+%
+%   \begin{macrocode}
+\providecommand{\LTLuntil}{\LTLu}
+\providecommand{\LTLrelease}{\LTLr}
+\providecommand{\LTLsince}{\LTLs}
+
+\providecommand{\LTLweakuntil}{\relax}
+\providecommand{\LTLweaksince}{\relax}
+\providecommand{\LTLglobally}{\relax}
+\providecommand{\LTLfinally}{\relax}
+\providecommand{\LTLnext}{\relax}
+\providecommand{\LTLweaknext}{\relax}
+\providecommand{\LTLprevious}{\relax}
+\providecommand{\LTLweakprevious}{\relax}
+\providecommand{\LTLpastgloabally}{\relax}
+\providecommand{\LTLpastfinally}{\relax}
+
+\newcommand{\ltl@define}{%
+  \ifKV@ltl@weakindex%
+    \let\LTLweakuntil\LTLuw
+    \let\LTLweaksince\LTLsw
+  \else
+    \let\LTLweakuntil\LTLw
+    \let\LTLweaksince\LTLb
+  \fi
+  \ifKV@ltl@characters%
+    \let\LTLglobally\LTLg
+    \let\LTLfinally\LTLf
+    \let\LTLnext\LTLx
+    \let\LTLweaknext\LTLxw
+    \let\LTLprevious\LTLp
+    \let\LTLweakprevious\LTLpw
+    \let\LTLpastgloabally\LTLh
+    \let\LTLpastfinally\LTLo
+  \else
+    \let\LTLglobally\LTLsquare
+    \let\LTLfinally\LTLdiamond
+    \let\LTLnext\LTLcircle
+    \let\LTLweaknext\LTLcirclew
+    \let\LTLprevious\LTLcircleminus
+    \ifKV@ltl@weakindex
+      \let\LTLweakprevious\LTLcircleminusw
+    \else
+      \let\LTLweakprevious\LTLcircletilde
+    \fi
+    \let\LTLpastglobally\LTLsquareminus
+    \let\LTLpastfinally\LTLdiamondminus
+  \fi
+  \let\LTLeventually\LTLfinally  
+  \let\LTLprev\LTLprevious
+  \let\LTLweakprev\LTLweakprevious
+  \let\LTLonce\LTLpastfinally
+  \let\LTLback\LTLweaksince
+}
+%    \end{macrocode}
 %
 % \subsection{Option Handling}
 %
@@ -355,50 +511,20 @@
 % or package.
 %    \begin{macrocode}
 \ProcessOptionsX<ltl>
+\ltl@define
 %    \end{macrocode}
 %
-% \subsection{Semantic Macros for LTL Operators}
-% 
-% alwyas characters operators
+% \begin{macro}{ltlsetup}
 %    \begin{macrocode}
-\DeclareMathOperator{\LTLuntil}{\mathcal{U}}
-\DeclareMathOperator{\LTLrelease}{\mathcal{R}}
-\DeclareMathOperator{\LTLsince}{\mathcal{S}}
-\ifKV@ltl@weakindex
-  \DeclareMathOperator{\LTLweakuntil}{\mathcal{U}_w}
-  \DeclareMathOperator{\LTLweaksince}{\mathcal{S}_w}
-\else
-  \DeclareMathOperator{\LTLweakuntil}{\mathcal{W}}
-  \DeclareMathOperator{\LTLweaksince}{\mathcal{B}}
-\fi
+\newcommand{\ltlsetup}[1]{%
+  \setkeys{ltl}{#1}%
+  \ltl@define%
+}
 %    \end{macrocode}
-% sometimes symbol operators
-%    \begin{macrocode}
-\ifKV@ltl@characters
-  \DeclareMathOperator{\LTLglobally}{\mathcal{G}}
-  \DeclareMathOperator{\LTLfinally}{\mathcal{F}}
-  \DeclareMathOperator{\LTLnext}{\mathcal{X}}
-  \DeclareMathOperator{\LTLweaknext}{\mathcal{X}_w}  
-  \DeclareMathOperator{\LTLprevious}{\mathcal{P}}
-  \DeclareMathOperator{\LTLweakprevious}{\mathcal{P}_w}
-  \DeclareMathOperator{\LTLpastglobally}{\mathcal{H}}
-  \DeclareMathOperator{\LTLpastfinally}{\mathcal{O}}
-\else
-  \let\LTLglobally\LTLsquare
-  \let\LTLfinally\LTLdiamond
-  \let\LTLnext\LTLcircle
-  \DeclareMathOperator{\LTLweaknext}{\LTLcircle_w}
-  \let\LTLprevious\LTLcircleminus
-  \let\LTLpastglobally\LTLsquareminus
-  \let\LTLpastfinally\LTLdiamondminus
-  \ifKV@ltl@weakindex
-    \DeclareMathOperator{\LTLweakprevious}{\LTLcircleminus_w}
-  \else
-    \let\LTLweakprevious\LTLcircletilde
-  \fi
-\fi
-
-%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Further macros}
+%
 % auxilaries
 %    \begin{macrocode}
 \DeclareMathOperator{\LTLpredict}{\rhd}
@@ -410,15 +536,6 @@
 \DeclareMathOperator{\LTLor}{\vee}
 \DeclareMathOperator{\LTLfalse}{\bot}
 \DeclareMathOperator{\LTLtrue}{\top}
-
-%    \end{macrocode}
-% aliases
-%    \begin{macrocode}
-\let\LTLeventually\LTLfinally
-\let\LTLprev\LTLprevious
-\let\LTLweakprev\LTLweakprevious
-\let\LTLonce\LTLpastfinally
-\let\LTLback\LTLweaksince
 \let\LTLimp\LTLimplication
 \let\LTLequ\LTLequivalent
 %    \end{macrocode}
